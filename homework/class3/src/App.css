@@ -1,0 +1,14 @@
+div#input-from > * {
+  margin: 6px;
+}
+
+div#component-registration > * {
+  margin-left: 6px;
+}
+div#class-registration > * {
+  margin-left: 6px;
+}
+
+body {
+  margin: 10px;
+}
