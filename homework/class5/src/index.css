@@ -22,3 +22,16 @@ body {
 #todo {
   box-shadow: 2px 2px 2px 2px;
 }
+
+#todo ol li:nth-child(2n + 1) {
+  color: blue;
+}
+#todo ol li:nth-child(3n + 1) {
+  color: green;
+}
+#todo ol li:nth-child(4n + 1) {
+  color: yellow;
+}
+#todo ol li:nth-child(5n + 1) {
+  color: orangered;
+}
