@@ -1,0 +1,38 @@
+div#App > h2 {
+  color: blueviolet;
+  display: inline-block;
+}
+
+div#App *:nth-last-child(1) {
+  border-bottom: none;
+}
+
+div#App *:nth-child(1) {
+  border-bottom: none;
+}
+
+div#App > * {
+  border-bottom: 1px solid blueviolet;
+}
+
+#App {
+  margin: auto;
+  width: 60%;
+  border: 3px solid #73ad21;
+  padding: 10px;
+  text-align: center;
+  border: 1px solid blueviolet;
+  border-radius: 5px;
+  width: max-content;
+  padding: 0 10px 0 10px;
+}
+
+#available {
+  color: green;
+  font-weight: bolder;
+}
+
+#notAvailable {
+  color: red;
+  font-weight: bolder;
+}
