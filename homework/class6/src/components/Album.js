@@ -23,7 +23,7 @@ export class Albums extends React.Component {
       <div id="albums">
         <h2>Albums</h2>
         {this.state.albums.length > 0 ? (
-          <table>
+          <table className="table table-striped text-center">
             <thead>
               <tr>
                 <th>UserID</th>

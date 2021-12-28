@@ -16,36 +16,35 @@ export const Posts = () => {
   return (
     <div id="posts">
       <h2>Posts</h2>
-      <div className="d-flex justify-content-center">
-        {posts[0] ? (
-          <table>
-            <thead>
-              <tr>
-                <th>UserID</th>
-                <th>PostID</th>
-                <th>Title</th>
-                <th>Body</th>
-              </tr>
-            </thead>
-            <tbody>
-              {posts
-                .sort((post) => post.id)
-                .map((post) => {
-                  return (
-                    <tr key={post.id}>
-                      <td>{post.userId}</td>
-                      <td>{post.id}</td>
-                      <td>{post.title}</td>
-                      <td>{post.body}</td>
-                    </tr>
-                  );
-                })}
-            </tbody>
-          </table>
-        ) : (
-          <h2> Posts are loading</h2>
-        )}
-      </div>
+
+      {posts[0] ? (
+        <table className="table table-striped text-center">
+          <thead>
+            <tr>
+              <th>UserID</th>
+              <th>PostID</th>
+              <th>Title</th>
+              <th>Body</th>
+            </tr>
+          </thead>
+          <tbody>
+            {posts
+              .sort((post) => post.id)
+              .map((post) => {
+                return (
+                  <tr key={post.id}>
+                    <td>{post.userId}</td>
+                    <td>{post.id}</td>
+                    <td>{post.title}</td>
+                    <td>{post.body}</td>
+                  </tr>
+                );
+              })}
+          </tbody>
+        </table>
+      ) : (
+        <h2> Posts are loading</h2>
+      )}
     </div>
   );
 };
