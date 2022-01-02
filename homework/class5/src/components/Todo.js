@@ -10,6 +10,7 @@ export const Todo = ({
 }) => {
   return (
     <div id="todo">
+      {console.log(todoList)}
       <h5>Todo List</h5>
       {todoList.length < 1 ? (
         <p>Empty</p>

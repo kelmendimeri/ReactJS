@@ -1,39 +1,17 @@
 import React, { useState } from "react";
 import { Todo } from "./Todo";
+import { v4 as uuid } from "uuid";
 
 export const App = () => {
-  const [todos, setTodos] = useState([
-    {
-      id: 0,
-      text: "Go to gym",
-      done: false,
-      brisi: false,
-      edit: "Edit",
-      accessText: true,
-    },
-    {
-      id: 1,
-      text: "Eat Lunch",
-      done: false,
-      brisi: false,
-      edit: "Edit",
-      accessText: true,
-    },
-    {
-      id: 2,
-      text: "Do your homework",
-      done: false,
-      brisi: false,
-      edit: "Edit",
-      accessText: true,
-    },
-  ]);
+  const [todos, setTodos] = useState([]);
   const [newTodo, setNewTodo] = useState("");
   const [editButton, setEditButton] = useState("Edit");
 
   const addNewTodo = (todo) => {
+    console.log(uuid());
     let item = {
-      id: todos.length,
+      // id: uuid()
+      id: uuid(),
       text: newTodo,
       done: false,
       brisi: false,
