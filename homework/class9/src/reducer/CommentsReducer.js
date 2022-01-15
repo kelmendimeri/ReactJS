@@ -1,4 +1,5 @@
 import {
+  DELETE_COMMENT,
   FETCH_COMMENTS_FAIL,
   FETCH_COMMENTS_SUCCESS,
 } from "./../constants/CommentsConstants";
@@ -22,6 +23,13 @@ const CommentsReducer = (state = initialState, action) => {
         error: action.payload,
       };
 
+    case DELETE_COMMENT:
+      return {
+        ...state,
+        comments: state.comments.filter(
+          (comment) => comment.id !== +action.payload
+        ),
+      };
     default:
       return state;
   }

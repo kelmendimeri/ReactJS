@@ -30,9 +30,15 @@ export const Cake = () => {
           if (cakes - event.target.value < 0) {
             return (event.target.value = cakes);
           }
+          if (event.target.value < 0) {
+            document.getElementById("button-substract").disabled = true;
+          } else {
+            document.getElementById("button-substract").disabled = false;
+          }
         }}
       />
       <button
+        id={"button-substract"}
         disabled={cakes < 1}
         onClick={() => {
           if (document.getElementById("cakes-substract").value === "") {
@@ -46,8 +52,19 @@ export const Cake = () => {
         Substract
       </button>
       <br />
-      <input type={"number"} id="cakes-adding" />
+      <input
+        type={"number"}
+        id="cakes-adding"
+        onChange={(event) => {
+          if (event.target.value < 0) {
+            document.getElementById("button-add").disabled = true;
+          } else {
+            document.getElementById("button-add").disabled = false;
+          }
+        }}
+      />
       <button
+        id={"button-add"}
         onClick={() => {
           if (document.getElementById("cakes-adding").value === "") {
             document.getElementById("cakes-adding").value = 0;

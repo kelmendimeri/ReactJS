@@ -4,11 +4,6 @@ import {
   FETCH_COMMENTS_SUCCESS,
 } from "./../constants/CommentsConstants";
 
-const headers = {
-  "Content-Type": "application/json",
-  accept: "application/json",
-};
-
 export const fetchCommentsSuccess = (comments) => {
   //vo comments se naogja lista na komentari Comments(500)
   return {
@@ -25,15 +20,15 @@ export const fetchCommentsFail = (error) => {
   };
 };
 
-export const deleteComment = (item) => {
+export const deleteComment = (id) => {
   return (dispatch) => {
-    fetch("https://jsonplaceholder.typicode.com/comments/1", {
+    fetch("https://jsonplaceholder.typicode.com/comments/" + id, {
       method: "DELETE",
-      headers,
-    })
-      .then((res) => res.json())
-      .then((json) => dispatch(FETCH_COMMENTS_SUCCESS(json)))
-      .catch((err) => dispatch(fetchCommentsFail(err)));
+    }).catch((err) => dispatch(fetchCommentsFail(err)));
+    dispatch({
+      type: DELETE_COMMENT,
+      payload: id,
+    });
   };
 };
 
