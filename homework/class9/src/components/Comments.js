@@ -26,7 +26,6 @@ export const Comments = () => {
         }}
       />
       <button
-        disabled={true}
         id="button-remove"
         onClick={(event) => {
           dispatch(

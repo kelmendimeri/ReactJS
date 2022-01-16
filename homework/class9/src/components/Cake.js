@@ -13,7 +13,7 @@ export const Cake = () => {
   return (
     <div id="cake">
       <h2>Cake: {cakes}</h2>
-      {message !== undefined ? <p>{message}</p> : false}
+      {message !== undefined && <p>{message}</p>}
       <button
         disabled={cakes < 1}
         onClick={() => {
@@ -26,6 +26,7 @@ export const Cake = () => {
       <input
         type={"number"}
         id="cakes-substract"
+        placeholder={"Prodaj torti"}
         onChange={(event) => {
           if (cakes - event.target.value < 0) {
             return (event.target.value = cakes);
@@ -44,9 +45,7 @@ export const Cake = () => {
           if (document.getElementById("cakes-substract").value === "") {
             document.getElementById("cakes-substract").value = 0;
           }
-          dispatch(
-            addCakes(parseInt(document.getElementById("cakes-substract").value))
-          );
+          dispatch(addCakes(+document.getElementById("cakes-substract").value));
         }}
       >
         Substract
@@ -55,6 +54,7 @@ export const Cake = () => {
       <input
         type={"number"}
         id="cakes-adding"
+        placeholder={"kupuvaj torti"}
         onChange={(event) => {
           if (event.target.value < 0) {
             document.getElementById("button-add").disabled = true;
@@ -69,9 +69,7 @@ export const Cake = () => {
           if (document.getElementById("cakes-adding").value === "") {
             document.getElementById("cakes-adding").value = 0;
           }
-          dispatch(
-            reduceCakes(parseInt(document.getElementById("cakes-adding").value))
-          );
+          dispatch(reduceCakes(+document.getElementById("cakes-adding").value));
         }}
       >
         Adding
