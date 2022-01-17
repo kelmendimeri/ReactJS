@@ -26,6 +26,7 @@ export const Cake = () => {
       <input
         type={"number"}
         id="cakes-substract"
+        name="hello"
         placeholder={"Prodaj torti"}
         onChange={(event) => {
           if (cakes - event.target.value < 0) {

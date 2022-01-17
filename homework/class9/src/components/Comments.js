@@ -13,28 +13,6 @@ export const Comments = () => {
   }, [dispatch]);
   return (
     <div id="comments">
-      <label>Enter the id of comment you want to remove</label>
-      <input
-        type={"number"}
-        id="comment-delete"
-        onChange={(event) => {
-          if (event.target.value < 1) {
-            document.getElementById("button-remove").disabled = true;
-          } else {
-            document.getElementById("button-remove").disabled = false;
-          }
-        }}
-      />
-      <button
-        id="button-remove"
-        onClick={(event) => {
-          dispatch(
-            deleteComment(document.getElementById("comment-delete").value)
-          );
-        }}
-      >
-        Delete
-      </button>
       {error !== undefined && <p>{error}</p>}
       <ul>
         {comments.map((comment) => {
@@ -45,6 +23,14 @@ export const Comments = () => {
               <span>
                 <Link to={`/comments/${comment.id}`}> Details... </Link>
               </span>
+              <button
+                id="button-remove"
+                onClick={() => {
+                  dispatch(deleteComment(comment.id));
+                }}
+              >
+                Delete
+              </button>
             </li>
           );
         })}
